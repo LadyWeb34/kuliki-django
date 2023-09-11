@@ -1,0 +1,46 @@
+{% extends "template.html" %}
+{% load static %}
+{% block title %} Проблемы {% endblock title %}
+{% block meta_descr %}Несмотря на всю свою красоту и благополучность, наш любимый хутор имеет несколько очень серьёзных проблем, которые требуют серьёзного внимания как со стороны властей, так и со стороны обычных жителей нашей малой родины.{% endblock meta_descr %}
+{% block meta_key %}Кулики, Проблемы, проблемы деревень, проблемы Куликовского{% endblock meta_key %}
+{% block content %}
+<section class="main-wrapper__section intro-section intro-section--people" id="intro-section">
+	<div class="intro-section__banner" style="background-image: url('{% static 'img/problem-bg.jpg' %}');">
+		<div class="intro-section__container container">
+			<div class="intro-section__inner">
+				<h2 class="intro-section__title">Проблемы</h2>
+			</div>
+		</div>
+		<span class="intro-section__author">
+			<strong>Из архива: </strong>
+			Социальных сетей
+		</span>
+	</div>
+</section>
+<section class="main-wrapper__section problem-section">
+    <div class="container problem-section__container">
+        <div class="problem-section__inner">
+            <div class="content-section__opening" style="margin-bottom: 50px;">
+                <h2 class="content-section__title">Введение</h2>
+                <h3 class="content-section__subtitle">
+                    Несмотря на всю свою красоту и благополучность, наш любимый хутор имеет несколько очень серьёзных проблем, которые требуют серьёзного внимания как со стороны властей, так и со стороны обычных жителей нашей малой родины.
+                </h3>
+            </div>
+            <ul class="problem-section__list">
+                {% for problem in problems %}
+                <li class="problem-section__item">
+                    <article class="problem-section__article">
+                        <img src="{{ problem.poster.url }}" alt="Пробема {{ problem.title }}" class="problem-section__img">
+                        <div class="problem-section__detail">
+                            <h3 class="problem-section__name">{{ problem.title }}</h3>
+                            <p class="problem-section__text">{{ problem.content|safe|truncatewords:80 }}</p>
+                            <a href="{% url 'detail_page' problem.slug %}" title="Читать подробнее" class="problem-section__link more-link">Читать подробнее</a>
+                        </div>
+                    </article>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+{% endblock %}

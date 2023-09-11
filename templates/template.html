@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="{% block meta_descr %}{% endblock meta_descr %}">
+  <meta name="keywords" content="{% block meta_key %}{% endblock meta_key %}">
+  <meta name="author" content="Мочалов Никита">
+  <meta name="robots" content="index">
+  <meta name="theme-color" content="#ffffff">
+  <title>Куликовский - {% block title %}{% endblock title %}</title>
+  <link rel="preload" href="{% static 'fonts/FigginsSans.woff2' %}" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="{% static 'css/vendor.css' %}">
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  <script defer src="{% static 'js/main.js' %}"></script>
+</head>
+<body class="application" id="app">
+  <div class="application__container" id="app-container">
+    <header class="application__header header" id="header">
+  <div class="container header__container">
+    <div class="header__row">
+      <a title="Куликовский" href="{% url 'home' %}" class="header__logo logo {% if request.path == '/' %} logo--big {% endif %}">
+        Куликовский
+      </a>
+      <nav role="menu" class="header__navbar navbar">
+        <menu role="menubar" class="navbar__menu">
+          <li role="menuitem" class="navbar__menu-item">
+            <a title="О проекте" href="{% url 'about' %}" class="navbar__menu-link">О проекте</a>
+          </li>
+          <li role="menuitem" class="navbar__menu-item">
+            <a title="История" href="{% url 'history' %}" class="navbar__menu-link">История</a>
+          </li>
+          <li role="menuitem" class="navbar__menu-item">
+            <a title="Люди" href="{% url 'people' %}" class="navbar__menu-link">Люди</a>
+          </li>
+          <li role="menuitem" class="navbar__menu-item">
+            <a title="Проблемы" href="{% url 'problem' %}" class="navbar__menu-link">Проблемы</a>
+          </li>
+        </menu>
+      </nav>
+    </div>
+  </div>
+</header>
+    <main class="application__main main-wrapper" id="main-wrapper">
+      <div class="main-wrapper__content">
+        {% block content %}
+
+        {% endblock content %}
+      </div>
+    </main>
+    <footer class="application__footer footer" id="footer">
+      <div class="container footer__container">
+        <!-- start codding -->
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

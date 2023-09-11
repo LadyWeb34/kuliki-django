@@ -1,0 +1,40 @@
+{% extends "template.html" %}
+{% load static %}
+{% block title %}{{ problem.name }}{% endblock title %}
+{% block meta_descr %}{{ problem.content|truncatewords:200 }}{% endblock meta_descr %}
+{% block content %}
+<section class="main-wrapper__section intro-section intro-section--detail" id="intro-section">
+	<div class="intro-section__banner" style="background-image: url('{{ problem.poster.url }}');">
+		<div class="intro-section__container container">
+			<div class="intro-section__inner">
+				<h2 class="intro-section__title">{{ problem.title }}</h2>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="main-wrapper__section content-section content-section--people">
+    <div class="container content-section__container">
+        <div class="content-section__inner">
+            <div class="content-section__info">
+                <p class="content-section__text">
+                    {{ problem.content|safe }}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="main-wrapper__section gallery">
+    <div class="container gallery__container">
+        <h2 class="gallery__title visually-hidden">Галерея</h2>
+        <ul class="gallery__list">
+            {% for image in images %}
+            <li class="gallery__list-item">
+                <a data-fslightbox="gallery" href="{{ image.img.url }}" class="gallery__list-link">
+                    <img loading="lazy" src="{{ image.img.url }}" alt="" class="gallery__list-img">
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+{% endblock %}

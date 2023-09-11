@@ -1,0 +1,36 @@
+{% extends "template.html" %}
+{% load static %}
+{% block title %} О проекте {% endblock title %}
+{% block meta_descr %}Этот сайт предназначен для того, чтобы показать жизнь жителей хутора Куликовского. Чем живет наш хутор, какие проблемы решаются, а какие до сих пор остаются под вопросом. Это маленькое место, где собраны истории, созданные жителями и людьми, интересующимися жизнью и историей места.{% endblock meta_descr %}
+{% block meta_key %} Это маленькое место, где собраны истории, созданные жителями и людьми, интересующимися жизнью и историей места. {% endblock meta_key %}
+{% block content %}
+<section class="main-wrapper__section intro-section intro-section--about" id="intro-section">
+	<div class="intro-section__banner" style="background-image: url({% static 'img/about-bg.jpg' %});">
+		<div class="intro-section__container container">
+			<div class="intro-section__inner">
+				<h2 class="intro-section__title">О проекте</h2>
+			</div>
+		</div>
+		<span class="intro-section__author">
+			<strong>Авторы: </strong>
+			Виталий Алексин
+		</span>
+	</div>
+</section>
+<section class="main-wrapper__section about-section" id="about-section">
+	<div class="container about-section__container">
+		<div class="about-section__inner">
+			<h2 class="about-section__title">О проекте</h2>
+			<p class="about-section__description">
+				Этот сайт предназначен для того, чтобы показать жизнь жителей хутора Куликовского. Чем живет наш хутор, какие проблемы решаются, а какие до сих пор остаются под вопросом.
+				<br />
+				<br />
+				Это маленькое место, где собраны истории, созданные жителями и людьми, интересующимися жизнью и историей места. <br />
+				<br />
+				Сайт постоянно обновляется, и каждый желающий может предложить свою публикацию. Совместными усилиями мы сможем сделать этот сайт визитной карточкой города, а в будущем превратить его в платформу для взаимодействия. Если
+				у вас есть вопрос или идея, напишите нам: <a href="mailto:test@yandex.ru" class="about-section__link mail-link">naukograd.io@gmail.com.</a>
+			</p>
+		</div>
+	</div>
+</section>
+{% endblock %}

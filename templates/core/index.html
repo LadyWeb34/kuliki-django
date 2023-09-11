@@ -1,0 +1,14 @@
+{% extends "template.html" %}
+{% load static %}
+{% block title %} Главная страница {% endblock title %}
+{% block content %}
+<section class="main-wrapper__section hero-section hero-section--video" id="hero-section">
+	<video loop muted autoplay class="hero-section__video">
+		<source src="{% static 'video-bg.mp4' %}" type="video/mp4" />
+	</video>
+	<div class="hero-section__informations">
+		<p class="hero-section__information">Жители хутора Куликовского рассказывают о месте, в котором живут</p>
+		<p class="hero-section__information">2023 © Сайт создан жителями хутора Куликовского</p>
+	</div>
+</section>
+{% endblock %}
